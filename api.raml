@@ -1,0 +1,577 @@
+#%RAML 0.8
+# JSON Schema creator at http://jsonschema.net/
+# schemas generated with "use absolute IDs", "force required", "schema array"
+title: Content Service
+
+/:
+  get:
+    displayName: Apidocs
+    responses:
+      200:
+        body:
+          text/html:
+/content/{id}:
+  uriParameters:
+    id:
+      displayName: Content ID
+      type: integer
+  get:
+    displayName: Content
+    queryParameters:
+      version:
+        displayName: Version
+        type: string
+        description: API version.
+        pattern: "v[0-9]+"
+        required: false
+        default: v1
+      state:
+        displayName: State
+        type: string
+        description: Content state.
+        pattern: "pub|draft|deleted"
+        required: false
+        default: pub
+      payload:
+        displayName: Payload
+        type: string
+        description: Content payload.
+        pattern: "core|teaser|full"
+        required: false
+        default: full
+    responses:
+      200:
+        body:
+          application/json:
+            schema: |
+              {
+                "$schema": "http://json-schema.org/draft-04/schema#",
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "tegID": {
+                    "type": "string"
+                  },
+                  "tegType": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string"
+                  },
+                  "sameAs": {
+                    "type": "string"
+                  },
+                  "version": {
+                    "type": "string"
+                  },
+                  "regionsAllowed": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "requiresSubscription": {
+                    "type": "boolean"
+                  },
+                  "isAccessibleForFree": {
+                    "type": "boolean"
+                  },
+                  "dateCreated": {
+                    "type": "string"
+                  },
+                  "dateModified": {
+                    "type": "string"
+                  },
+                  "datePublished": {
+                    "type": "string"
+                  },
+                  "dateExpired": {
+                    "type": "string"
+                  },                  
+                  "inLanguage": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "object",
+                    "properties": {
+                      "canonical": {
+                        "type": "string"
+                      },
+                      "web": {
+                        "type": "string"
+                      },
+                      "short": {
+                        "type": "string"
+                      },
+                      "twitter": {
+                        "type": "string"
+                      },
+                      "alias": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "headline": {
+                    "type": "string"
+                  },
+                  "subHeadline": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "byline": {
+                    "type": "string"
+                  },
+                  "tagline": {
+                    "type": "string"
+                  },
+                  "text": {
+                    "type": "object",
+                    "items": {
+                      "mimeType": {
+                        "type": "string"
+                      },
+                      "text": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "print": {
+                    "type": "object",
+                    "properties": {
+                      "headline": {
+                        "type": "string"
+                      },
+                      "subHeadline": {
+                        "type": "string"
+                      },
+                      "description": {
+                        "type": "string"
+                      },
+                      "byline": {
+                        "type": "string"
+                      },
+                      "tagline": {
+                        "type": "string"
+                      },
+                      "section": {
+                        "type": "string"
+                      },
+                      "edition": {
+                        "type": "string"
+                      },
+                      "page": {
+                        "type": "string"
+                      },
+                      "pageStart": {
+                        "type": "integer"
+                      },
+                      "pageEnd": {
+                        "type": "integer"
+                      },
+                      "column": {
+                        "type": "string"
+                      }                                                                
+                    }
+                  },
+                  "publisher": {
+                    "type": "object",
+                    "properties": {
+                      "givenName": {
+                        "type": "string"
+                      },
+                      "familyName": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "channel": {
+                    "type": "string"
+                  }, 
+                  "isPartOf": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },  
+                  "articleSection": {
+                    "type": "object",
+                    "properties": {
+                      "internal": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }                        
+                      },
+                      "public": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "about": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "source": {
+                          "type": "string"
+                        },
+                        "ref": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "genre": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "keywords": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "ad": {
+                    "type": "object",
+                    "properties": {
+                      "zonecode": {
+                          "type": "string"
+                      },
+                      "sitecode": {
+                          "type": "string"
+                      },
+                      "grapehsot": {
+                          "type": "string"
+                      }
+                    }
+                  },                                                                 
+                  "sponsor": {
+                    "type": "string"
+                  },
+                  "audience": {
+                    "type": "string"
+                  },
+                  "comment": {
+                    "type": "string"
+                  },
+                  "images": {
+                    "type": "object",
+                    "properties": {
+                      "main": {
+                        "type": "string"
+                      },
+                      "inline": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "gallery": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }                      
+                    }
+                  },                    
+                  "videos": {
+                    "type": "object",
+                    "properties": {
+                      "main": {
+                        "type": "string"
+                      },
+                      "inline": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "gallery": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }                      
+                    }
+                  },  
+                  "audio": {
+                    "type": "object",
+                    "properties": {
+                      "main": {
+                        "type": "string"
+                      },
+                      "inline": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }                     
+                    }
+                  },
+                  "associatedMedia": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "mediaData": {
+                    "type": "object",
+                    "properties": {
+                      "width": {
+                        "type": "integer"
+                      },
+                      "height": {
+                        "type": "integer"
+                      },
+                      "autoStart": {
+                        "type": "boolean"
+                      },
+                      "encodingFormat": {
+                        "type": "string"
+                      },
+                      "bitrate": {
+                        "type": "string"
+                      },
+                      "rendition": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "author": {
+                    "type": "object",
+                    "properties": {
+                      "givenName": {
+                        "type": "string"
+                      },
+                      "familyName": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "contributor": {
+                    "type": "object",
+                    "properties": {
+                      "givenName": {
+                        "type": "string"
+                      },
+                      "familyName": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "copyrightHolder": {
+                    "type": "object",
+                    "properties": {
+                      "givenName": {
+                        "type": "string"
+                      },
+                      "familyName": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "accountablePerson": {
+                    "type": "object",
+                    "properties": {
+                      "givenName": {
+                        "type": "string"
+                      },
+                      "familyName": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "locationCreated": {
+                    "type": "object",
+                    "properties": {
+                      "address": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      }
+                    }
+                  },                                                                                
+                  "sourceOrganization": {
+                    "type": "object",
+                    "properties": {
+                      "address": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "copyrightYear": {
+                    "type": "int"
+                  },
+                  "license": {
+                    "type": "string"
+                  },
+                  "text": {
+                    "properties": {
+                      "mediaType": {
+                        "type": "string"
+                      },
+                      "text": {
+                        "type": "string"
+                      }
+                    }
+                  },  
+                  "publications": {
+                    "properties": {
+                      "headline": {
+                        "type": "string"
+                      },
+                      "subHeadline": {
+                        "type": "string"
+                      },
+                      "description": {
+                        "type": "string"
+                      }
+                    }
+                  },  
+                  "lists": {
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "position": {
+                        "type": "int"
+                      },
+                      "order": {
+                        "type": "string"
+                      },
+                      "totalItems": {
+                        "type": "int"
+                      },
+                      "pagination": {
+                        "type": "object",
+                        "properties": {
+                          "pageStart": {
+                            "type": "int"
+                          },
+                          "pageEnd": {
+                            "type": "int"
+                          }                          
+                        }
+                      },
+                      "list": {
+                        "type": "string"
+                      },
+                      "withLists": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        } 
+                      }                                                            
+                    }
+                  }
+                },
+                "required": [
+                  "id",
+                  "tegID",
+                  "tegType",
+                  "type",
+                  "version",
+                  "dateCreated"
+                ]
+              }
+            example: |
+              {
+                "id": "http://mt-content.stage.s.aws.economist.com/mapper/id/21697812",
+                "tegID": "thpjrusqjuiub84fu6t3h3n6oivvaa1b",
+                "tegType": "article",
+                "type": "article",
+                "version": "0",
+                "regionsAllowed": ["GB"],
+                "requiresSubscription": false,
+                "isAccessibleForFree": true,
+                "dateCreated": "2015-12-30T15:49:20Z",
+                "dateModified": "2015-12-30T15:49:20Z",
+                "datePublished": "2015-12-30T15:49:20Z",
+                "inLanguage": "en",
+                "urlCollection": {
+                    "canonical": "http://www.economist.com/news/21697812-worlds-most-valuable-company-reported-its-first-year-year-quarterly-revenue-decline",
+                    "web": "/news/21697812-worlds-most-valuable-company-reported-its-first-year-year-quarterly-revenue-decline",
+                    "short": "bit.ly/21697812"
+                },                
+                "headline": "Shake it off",
+                "subHeadline": "The future of Apple",                
+                "description": "The worldâ€™s most valuable company needs another mega hit",
+                "printEdition": {
+                    "subHeadline": "The worldâ€™s most valuable company",
+                    "edition": "http://mt-content.stage.s.aws.economist.com/mapper/id/21697795",
+                    "section": "http://mt-content.stage.s.aws.economist.com/sections/77",
+                    "pageStart": 25
+                    "pageEnd": 26
+                },                  
+                "isPartOf": [
+                  "http://mt-content.stage.s.aws.economist.com/lists/print",
+                  "http://mt-content.stage.s.aws.economist.com/lists/sections",
+                  ],
+                "articleSection": {
+                    "internal": [
+                      "http://mt-content.stage.s.aws.economist.com/sections/34"                    
+                    ]
+                },
+                "about": [
+                  {
+                    "source": "Topics",
+                    "ref": "http://mt-content.stage.s.aws.economist.com/lists/topics/21697816"
+                  }
+                ],
+                "genre": ["News", "Business", "Economics"],
+                "keywords": ["Shake it off", "Apple"],
+                "ads": {
+                  "zone": "kjdu",
+                  "site": "LASN",
+                  "grapehsot": "http://mt-content.stage.s.aws.economist.com/external/grapeshot?url=http%3A%2F%2Fwww.economist.com%2Fnode%2F21697812"
+                },   
+                "sponsor": {
+                  "givenName": "Mark",
+                  "familyName": "Brincat"
+                },
+                "comment": "http://www.economist.com/node/21697812/comments#comments",
+                "images": {
+                  "main": "http://cdn.static-economist.com/sites/default/files/images/2016/04/articles/body/20160430_wbc249_0.png",
+                  "inline": [
+                    "http://cdn.static-economist.com/sites/default/files/images/2016/04/articles/body/20160430_wbc249_0.png",
+                  ]
+                },
+                "author": [
+                  {
+                    "familyName": "M.S.R"
+                  }
+                ],
+                "text": {
+                  "mediaType": "text/html",
+                  "text": "<p>OUR product pipeline has amazing innovations in store.</p>",
+                }
+                "publications": {
+                    "subHeadline": "The worldâ€™s most valuable company",
+                },    
+                "listData": {
+                  "withinLists": [
+                    "http://mt-content.stage.s.aws.economist.com/mapper/id/21697795",
+                    "http://mt-content.stage.s.aws.economist.com/sections/77",
+                    "http://mt-content.stage.s.aws.economist.com/sections/34"                    
+                  ]
+                }
+              }

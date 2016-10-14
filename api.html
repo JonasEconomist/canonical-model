@@ -1,0 +1,675 @@
+<!DOCTYPE HTML><html><head><title>Content Service API documentation</title><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="generator" content="https://github.com/kevinrenskers/raml2html 2.1.2"><link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/styles/default.min.css"><script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script><script type="text/javascript" src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/highlight.min.js"></script><script type="text/javascript">
+      $(document).ready(function() {
+        $('.page-header pre code, .top-resource-description pre code').each(function(i, block) {
+          hljs.highlightBlock(block);
+        });
+
+        $('[data-toggle]').click(function() {
+          var selector = $(this).data('target') + ' pre code';
+          $(selector).each(function(i, block) {
+            hljs.highlightBlock(block);
+          });
+        });
+
+        // open modal on hashes like #_action_get
+        $(window).bind('hashchange', function(e) {
+          var anchor_id = document.location.hash.substr(1); //strip #
+          var element = $('#' + anchor_id);
+
+          // do we have such element + is it a modal?  --> show it
+          if (element.length && element.hasClass('modal')) {
+            element.modal('show');
+          }
+        });
+
+        // execute hashchange on first page load
+        $(window).trigger('hashchange');
+
+        // remove url fragment on modal hide
+        $('.modal').on('hidden.bs.modal', function() {
+          try {
+            if (history && history.replaceState) {
+                history.replaceState({}, '', '#');
+            }
+          } catch(e) {}
+        });
+      });
+    </script><style>
+      .hljs {
+        background: transparent;
+      }
+      .parent {
+        color: #999;
+      }
+      .list-group-item > .badge {
+        float: none;
+        margin-right: 6px;
+      }
+      .panel-title > .methods {
+        float: right;
+      }
+      .badge {
+        border-radius: 0;
+        text-transform: uppercase;
+        width: 70px;
+        font-weight: normal;
+        color: #f3f3f6;
+        line-height: normal;
+      }
+      .badge_get {
+        background-color: #63a8e2;
+      }
+      .badge_post {
+        background-color: #6cbd7d;
+      }
+      .badge_put {
+        background-color: #22bac4;
+      }
+      .badge_delete {
+        background-color: #d26460;
+      }
+      .badge_patch {
+        background-color: #ccc444;
+      }
+      .list-group, .panel-group {
+        margin-bottom: 0;
+      }
+      .panel-group .panel+.panel-white {
+        margin-top: 0;
+      }
+      .panel-group .panel-white {
+        border-bottom: 1px solid #F5F5F5;
+        border-radius: 0;
+      }
+      .panel-white:last-child {
+        border-bottom-color: white;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+      }
+      .panel-white .panel-heading {
+        background: white;
+      }
+      .tab-pane ul {
+        padding-left: 2em;
+      }
+      .tab-pane h2 {
+        font-size: 1.2em;
+        padding-bottom: 4px;
+        border-bottom: 1px solid #ddd;
+      }
+      .tab-pane h3 {
+        font-size: 1.1em;
+      }
+      .tab-content {
+        border-left: 1px solid #ddd;
+        border-right: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+        padding: 10px;
+      }
+      #sidebar {
+        margin-top: 30px;
+        padding-right: 5px;
+        overflow: auto;
+        height: 90%;
+      }
+      .top-resource-description {
+        border-bottom: 1px solid #ddd;
+        background: #fcfcfc;
+        padding: 15px 15px 0 15px;
+        margin: -15px -15px 10px -15px;
+      }
+      .resource-description {
+        border-bottom: 1px solid #fcfcfc;
+        background: #fcfcfc;
+        padding: 15px 15px 0 15px;
+        margin: -15px -15px 10px -15px;
+      }
+      .resource-description p:last-child {
+        margin: 0;
+      }
+      .list-group .badge {
+        float: left;
+      }
+      .method_description {
+        margin-left: 85px;
+      }
+      .method_description p:last-child {
+        margin: 0;
+      }
+      .list-group-item {
+        cursor: pointer;
+      }
+      .list-group-item:hover {
+        background-color: #f5f5f5;
+      }
+    </style></head><body data-spy="scroll" data-target="#sidebar"><div class="container"><div class="row"><div class="col-md-9" role="main"><div class="page-header"><h1>Content Service API documentation</h1><p></p></div><div class="panel panel-default"><div class="panel-heading"><h3 class="panel-title">/</h3></div><div class="panel-body"><div class="panel-group"><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_"><span class="parent"></span>/</a> <span class="methods"><a href="#_get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#_get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="_get"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent"></span>/</h4></div><div class="modal-body"><ul class="nav nav-tabs"><li><a href="#_get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane" id="_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Type: text/html</strong></p></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 id="content__id_" class="panel-title">/content/{id}</h3></div><div class="panel-body"><div class="panel-group"><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_content__id_"><span class="parent"></span>/content/{id}</a> <span class="methods"><a href="#content__id__get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel_content__id_" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#content__id__get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="content__id__get"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent"></span>/content/{id}</h4></div><div class="modal-body"><ul class="nav nav-tabs"><li class="active"><a href="#content__id__get_request" data-toggle="tab">Request</a></li><li><a href="#content__id__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="content__id__get_request"><h3>URI Parameters</h3><ul><li><strong>Content ID</strong>: <em>required (integer)</em></li></ul><h3>Query Parameters</h3><ul><li><strong>Version</strong>: <em>(string - default: v1 - pattern: v[0-9]+)</em><p>API version.</p></li><li><strong>State</strong>: <em>(string - default: pub - pattern: pub|draft|deleted)</em><p>Content state.</p></li><li><strong>Payload</strong>: <em>(string - default: full - pattern: core|teaser|full)</em><p>Content payload.</p></li></ul></div><div class="tab-pane" id="content__id__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Schema</strong>:</p><pre><code>{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "tegID": {
+      "type": "string"
+    },
+    "tegType": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "sameAs": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "regionsAllowed": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "requiresSubscription": {
+      "type": "boolean"
+    },
+    "isAccessibleForFree": {
+      "type": "boolean"
+    },
+    "dateCreated": {
+      "type": "string"
+    },
+    "dateModified": {
+      "type": "string"
+    },
+    "datePublished": {
+      "type": "string"
+    },
+    "dateExpired": {
+      "type": "string"
+    },                  
+    "inLanguage": {
+      "type": "string"
+    },
+    "url": {
+      "type": "object",
+      "properties": {
+        "canonical": {
+          "type": "string"
+        },
+        "web": {
+          "type": "string"
+        },
+        "short": {
+          "type": "string"
+        },
+        "twitter": {
+          "type": "string"
+        },
+        "alias": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "headline": {
+      "type": "string"
+    },
+    "subHeadline": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "byline": {
+      "type": "string"
+    },
+    "tagline": {
+      "type": "string"
+    },
+    "text": {
+      "type": "object",
+      "items": {
+        "mimeType": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        }
+      }
+    },
+    "print": {
+      "type": "object",
+      "properties": {
+        "headline": {
+          "type": "string"
+        },
+        "subHeadline": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "byline": {
+          "type": "string"
+        },
+        "tagline": {
+          "type": "string"
+        },
+        "section": {
+          "type": "string"
+        },
+        "edition": {
+          "type": "string"
+        },
+        "page": {
+          "type": "string"
+        },
+        "pageStart": {
+          "type": "integer"
+        },
+        "pageEnd": {
+          "type": "integer"
+        },
+        "column": {
+          "type": "string"
+        }                                                                
+      }
+    },
+    "publisher": {
+      "type": "object",
+      "properties": {
+        "givenName": {
+          "type": "string"
+        },
+        "familyName": {
+          "type": "string"
+        }
+      }
+    },
+    "channel": {
+      "type": "string"
+    }, 
+    "isPartOf": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },  
+    "articleSection": {
+      "type": "object",
+      "properties": {
+        "internal": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }                        
+        },
+        "public": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "about": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "string"
+          },
+          "ref": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "genre": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "keywords": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "ad": {
+      "type": "object",
+      "properties": {
+        "zonecode": {
+            "type": "string"
+        },
+        "sitecode": {
+            "type": "string"
+        },
+        "grapehsot": {
+            "type": "string"
+        }
+      }
+    },                                                                 
+    "sponsor": {
+      "type": "string"
+    },
+    "audience": {
+      "type": "string"
+    },
+    "comment": {
+      "type": "string"
+    },
+    "images": {
+      "type": "object",
+      "properties": {
+        "main": {
+          "type": "string"
+        },
+        "inline": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "gallery": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }                      
+      }
+    },                    
+    "videos": {
+      "type": "object",
+      "properties": {
+        "main": {
+          "type": "string"
+        },
+        "inline": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "gallery": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }                      
+      }
+    },  
+    "audio": {
+      "type": "object",
+      "properties": {
+        "main": {
+          "type": "string"
+        },
+        "inline": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }                     
+      }
+    },
+    "associatedMedia": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "mediaData": {
+      "type": "object",
+      "properties": {
+        "width": {
+          "type": "integer"
+        },
+        "height": {
+          "type": "integer"
+        },
+        "autoStart": {
+          "type": "boolean"
+        },
+        "encodingFormat": {
+          "type": "string"
+        },
+        "bitrate": {
+          "type": "string"
+        },
+        "rendition": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "author": {
+      "type": "object",
+      "properties": {
+        "givenName": {
+          "type": "string"
+        },
+        "familyName": {
+          "type": "string"
+        }
+      }
+    },
+    "contributor": {
+      "type": "object",
+      "properties": {
+        "givenName": {
+          "type": "string"
+        },
+        "familyName": {
+          "type": "string"
+        }
+      }
+    },
+    "copyrightHolder": {
+      "type": "object",
+      "properties": {
+        "givenName": {
+          "type": "string"
+        },
+        "familyName": {
+          "type": "string"
+        }
+      }
+    },
+    "accountablePerson": {
+      "type": "object",
+      "properties": {
+        "givenName": {
+          "type": "string"
+        },
+        "familyName": {
+          "type": "string"
+        }
+      }
+    },
+    "locationCreated": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },                                                                                
+    "sourceOrganization": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "copyrightYear": {
+      "type": "int"
+    },
+    "license": {
+      "type": "string"
+    },
+    "text": {
+      "properties": {
+        "mediaType": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        }
+      }
+    },  
+    "publications": {
+      "properties": {
+        "headline": {
+          "type": "string"
+        },
+        "subHeadline": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    },  
+    "lists": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "position": {
+          "type": "int"
+        },
+        "order": {
+          "type": "string"
+        },
+        "totalItems": {
+          "type": "int"
+        },
+        "pagination": {
+          "type": "object",
+          "properties": {
+            "pageStart": {
+              "type": "int"
+            },
+            "pageEnd": {
+              "type": "int"
+            }                          
+          }
+        },
+        "list": {
+          "type": "string"
+        },
+        "withLists": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          } 
+        }                                                            
+      }
+    }
+  },
+  "required": [
+    "id",
+    "tegID",
+    "tegType",
+    "type",
+    "version",
+    "dateCreated"
+  ]
+}
+</code></pre><p><strong>Example</strong>:</p><pre><code>{
+  "id": "http://mt-content.stage.s.aws.economist.com/mapper/id/21697812",
+  "tegID": "thpjrusqjuiub84fu6t3h3n6oivvaa1b",
+  "tegType": "article",
+  "type": "article",
+  "version": "0",
+  "regionsAllowed": ["GB"],
+  "requiresSubscription": false,
+  "isAccessibleForFree": true,
+  "dateCreated": "2015-12-30T15:49:20Z",
+  "dateModified": "2015-12-30T15:49:20Z",
+  "datePublished": "2015-12-30T15:49:20Z",
+  "inLanguage": "en",
+  "urlCollection": {
+      "canonical": "http://www.economist.com/news/21697812-worlds-most-valuable-company-reported-its-first-year-year-quarterly-revenue-decline",
+      "web": "/news/21697812-worlds-most-valuable-company-reported-its-first-year-year-quarterly-revenue-decline",
+      "short": "bit.ly/21697812"
+  },                
+  "headline": "Shake it off",
+  "subHeadline": "The future of Apple",                
+  "description": "The worldâ€™s most valuable company needs another mega hit",
+  "printEdition": {
+      "subHeadline": "The worldâ€™s most valuable company",
+      "edition": "http://mt-content.stage.s.aws.economist.com/mapper/id/21697795",
+      "section": "http://mt-content.stage.s.aws.economist.com/sections/77",
+      "pageStart": 25
+      "pageEnd": 26
+  },                  
+  "isPartOf": [
+    "http://mt-content.stage.s.aws.economist.com/lists/print",
+    "http://mt-content.stage.s.aws.economist.com/lists/sections",
+    ],
+  "articleSection": {
+      "internal": [
+        "http://mt-content.stage.s.aws.economist.com/sections/34"                    
+      ]
+  },
+  "about": [
+    {
+      "source": "Topics",
+      "ref": "http://mt-content.stage.s.aws.economist.com/lists/topics/21697816"
+    }
+  ],
+  "genre": ["News", "Business", "Economics"],
+  "keywords": ["Shake it off", "Apple"],
+  "ads": {
+    "zone": "kjdu",
+    "site": "LASN",
+    "grapehsot": "http://mt-content.stage.s.aws.economist.com/external/grapeshot?url=http%3A%2F%2Fwww.economist.com%2Fnode%2F21697812"
+  },   
+  "sponsor": {
+    "givenName": "Mark",
+    "familyName": "Brincat"
+  },
+  "comment": "http://www.economist.com/node/21697812/comments#comments",
+  "images": {
+    "main": "http://cdn.static-economist.com/sites/default/files/images/2016/04/articles/body/20160430_wbc249_0.png",
+    "inline": [
+      "http://cdn.static-economist.com/sites/default/files/images/2016/04/articles/body/20160430_wbc249_0.png",
+    ]
+  },
+  "author": [
+    {
+      "familyName": "M.S.R"
+    }
+  ],
+  "text": {
+    "mediaType": "text/html",
+    "text": "&lt;p&gt;OUR product pipeline has amazing innovations in store.&lt;/p&gt;",
+  }
+  "publications": {
+      "subHeadline": "The worldâ€™s most valuable company",
+  },    
+  "listData": {
+    "withinLists": [
+      "http://mt-content.stage.s.aws.economist.com/mapper/id/21697795",
+      "http://mt-content.stage.s.aws.economist.com/sections/77",
+      "http://mt-content.stage.s.aws.economist.com/sections/34"                    
+    ]
+  }
+}
+</code></pre></div></div></div></div></div></div></div></div></div></div></div><div class="col-md-3"><div id="sidebar" class="hidden-print affix" role="complementary"><ul class="nav nav-pills nav-stacked"><li><a href="#">/</a></li><li><a href="#content__id_">/content/{id}</a></li></ul></div></div></div></div></body></html>
