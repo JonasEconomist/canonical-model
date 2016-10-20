@@ -328,12 +328,12 @@ var sample = Content{
 		PageEnd:     26,
 	},
 	IsPartOf: []Ref{
-		NewRef(ID("http://mt-content.stage.s.aws.economist.com/lists/print")),
-		NewRef(ID("http://mt-content.stage.s.aws.economist.com/lists/sections")),
+		NewRef(ID("/lists/print")),
+		NewRef(ID("/lists/sections")),
 	},
 	ArticleSection: Section{
 		Internal: []Ref{
-			NewRef(ID("http://mt-content.stage.s.aws.economist.com/sections/34")),
+			NewRef(ID("/sections/34")),
 		},
 	},
 	About: []AboutLink{
@@ -383,9 +383,9 @@ var sample = Content{
 	},
 	ListData: List{
 		WithinLists: []Ref{
-			NewRef(ID("http://mt-content.stage.s.aws.economist.com/mapper/id/21697795")),
-			NewRef(ID("http://mt-content.stage.s.aws.economist.com/sections/77")),
-			NewRef(ID("http://mt-content.stage.s.aws.economist.com/sections/34")),
+			NewRef(ID("/mapper/id/21697795")),
+			NewRef(ID("/sections/77")),
+			NewRef(ID("/sections/34")),
 		},
 	},
 }

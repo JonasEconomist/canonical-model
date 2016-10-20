@@ -1,0 +1,302 @@
+{
+  "article" : {
+    "mappings" : {
+      "testmap" : {
+        "properties" : {
+          "about" : {
+            "properties" : {
+              "ref" : {
+                "type" : "string"
+              },
+              "source" : {
+                "type" : "string"
+              }
+            }
+          },
+          "ads" : {
+            "properties" : {
+              "grapeshot" : {
+                "type" : "string"
+              },
+              "site" : {
+                "type" : "string"
+              },
+              "zone" : {
+                "type" : "string"
+              }
+            }
+          },
+          "articleSection" : {
+            "properties" : {
+              "internal" : {
+                "type" : "string"
+              }
+            }
+          },
+          "audio" : {
+            "properties" : {
+              "main" : {
+                "type" : "string"
+              }
+            }
+          },
+          "author" : {
+            "properties" : {
+              "familyName" : {
+                "type" : "string"
+              },
+              "givenName" : {
+                "type" : "string"
+              }
+            }
+          },
+          "byline" : {
+            "type" : "string"
+          },
+          "channel" : {
+            "type" : "string"
+          },
+          "comment" : {
+            "type" : "string"
+          },
+          "copyrightYear" : {
+            "type" : "long"
+          },
+          "dateCreated" : {
+            "type" : "date",
+            "format" : "strict_date_optional_time||epoch_millis"
+          },
+          "dateExpired" : {
+            "type" : "strict_date_optional_time||epoch_millis"
+          },
+          "dateModified" : {
+            "type" : "date",
+            "format" : "strict_date_optional_time||epoch_millis"
+          },
+          "datePublished" : {
+            "type" : "date",
+            "format" : "strict_date_optional_time||epoch_millis"
+          },
+          "description" : {
+            "type" : "string"
+          },
+          "genre" : {
+            "type" : "string"
+          },
+          "headline" : {
+            "type" : "string"
+          },
+          "id" : {
+            "type" : "string"
+          },
+          "images" : {
+            "properties" : {
+              "internal" : {
+                "type" : "string"
+              },
+              "main" : {
+                "type" : "string"
+              }
+            }
+          },
+          "inLanguage" : {
+            "type" : "string"
+          },
+          "isAccessibleForFree" : {
+            "type" : "boolean"
+          },
+          "isPartOf" : {
+            "type" : "string"
+          },
+          "keywords" : {
+            "type" : "string"
+          },
+          "license" : {
+            "type" : "string"
+          },
+          "list" : {
+            "properties" : {
+              "list" : {
+                "type" : "string"
+              },
+              "name" : {
+                "type" : "string"
+              },
+              "order" : {
+                "type" : "string"
+              },
+              "pagination" : {
+                "properties" : {
+                  "pageEnd" : {
+                    "type" : "long"
+                  },
+                  "pageStart" : {
+                    "type" : "long"
+                  }
+                }
+              },
+              "position" : {
+                "type" : "long"
+              },
+              "totalItems" : {
+                "type" : "long"
+              },
+              "withinLists" : {
+                "type" : "string"
+              }
+            }
+          },
+          "mediaData" : {
+            "properties" : {
+              "autostart" : {
+                "type" : "boolean"
+              },
+              "bitrate" : {
+                "type" : "long"
+              },
+              "encodingFormat" : {
+                "type" : "string"
+              },
+              "height" : {
+                "type" : "long"
+              },
+              "width" : {
+                "type" : "long"
+              }
+            }
+          },
+          "printEdition" : {
+            "properties" : {
+              "byline" : {
+                "type" : "string"
+              },
+              "column" : {
+                "type" : "string"
+              },
+              "description" : {
+                "type" : "string"
+              },
+              "edition" : {
+                "type" : "string"
+              },
+              "headline" : {
+                "type" : "string"
+              },
+              "pageEnd" : {
+                "type" : "long"
+              },
+              "pageStart" : {
+                "type" : "long"
+              },
+              "section" : {
+                "type" : "string"
+              },
+              "subHeadline" : {
+                "type" : "string"
+              },
+              "tagline" : {
+                "type" : "string"
+              }
+            }
+          },
+          "publications" : {
+            "properties" : {
+              "description" : {
+                "type" : "string"
+              },
+              "headline" : {
+                "type" : "string"
+              },
+              "subHeadline" : {
+                "type" : "string"
+              }
+            }
+          },
+          "publisher" : {
+            "properties" : {
+              "familyName" : {
+                "type" : "string"
+              },
+              "givenName" : {
+                "type" : "string"
+              }
+            }
+          },
+          "regionsAllowed" : {
+            "type" : "string"
+          },
+          "requiresSubscription" : {
+            "type" : "boolean"
+          },
+          "sameAs" : {
+            "type" : "string"
+          },
+          "sponsor" : {
+            "properties" : {
+              "familyName" : {
+                "type" : "string"
+              },
+              "givenName" : {
+                "type" : "string"
+              }
+            }
+          },
+          "subheadline" : {
+            "type" : "string"
+          },
+          "tagline" : {
+            "type" : "string"
+          },
+          "tegID" : {
+            "type" : "string"
+          },
+          "tegType" : {
+            "type" : "string"
+          },
+          "text" : {
+            "properties" : {
+              "mediaType" : {
+                "type" : "string"
+              },
+              "text" : {
+                "type" : "string"
+              }
+            }
+          },
+          "type" : {
+            "type" : "string"
+          },
+          "url" : {
+            "properties" : {
+              "alias" : {
+                "type" : "string"
+              },
+              "canonical" : {
+                "type" : "string"
+              },
+              "short" : {
+                "type" : "string"
+              },
+              "twitter" : {
+                "type" : "string"
+              },
+              "web" : {
+                "type" : "string"
+              }
+            }
+          },
+          "version" : {
+            "type" : "string"
+          },
+          "videos" : {
+            "properties" : {
+              "main" : {
+                "type" : "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
