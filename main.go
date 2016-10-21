@@ -5,7 +5,6 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
-	"os"
 
 	"github.com/JonasEconomist/canonical-model/content"
 	"github.com/JonasEconomist/canonical-model/es"
@@ -36,11 +35,6 @@ func populate(w http.ResponseWriter, r *http.Request) {
 		log.Printf("error reading data: %v\n", err)
 		w.WriteHeader(http.StatusInternalServerError)
 	}
-}
-
-func readData(path string, f os.FileInfo, err error) error {
-	log.Fatalf("% #v\n", f)
-	return nil
 }
 
 func main() {

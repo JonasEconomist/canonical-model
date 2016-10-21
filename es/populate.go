@@ -35,7 +35,7 @@ func ReadData() error {
 
 	for _, file := range files {
 		if file.Mode().IsRegular() {
-			data, err := ioutil.ReadFile(file.Name())
+			data, err := ioutil.ReadFile("./data/" + file.Name())
 			if err != nil {
 				log.Printf("file reading error: %v\n", err)
 				return err
