@@ -22,9 +22,27 @@ for an Elastic Search cluster, either running locally or on our [stage cluster](
 Here are some sample queries you can run after initial setup to get you going:
 
 * view mappings for the index: ```http://localhost:9200/article/_mapping```
-* search for the term "clinton": ```http://localhost:9200/article/_search?q=clinton```
+* search for the term "clinton": ```http://localhost:9200/ article/_search?q=clinton```
+
 * search for the term "clinton" in ```testmap``` types: ````http://localhost:9200/article/testmap/_search?q=clinton```
-* search for the term "clinton" and return the headline and canonical URL: ````http://localhost:9200/article/testmap/_search?q=clinton&fields=headline,url.canonical```
+
+* search for the term "clinton" and return the headline and canonical URL: ```http://localhost:9200/article/testmap/_search?q=clinton&fields=headline,url.canonical```
+
+* filtered search (which doesn't order by score and so is faster and easier to cache): ```http://localhost:9200/article/_search``` make a POST request with a body of:
+
+```json
+{
+	"query": {
+		"filtered": {
+			"filter": {
+				"term": {
+					"name": "trump"
+				}
+			}
+		}
+	}
+}
+```
 
 
 
