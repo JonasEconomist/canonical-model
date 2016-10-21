@@ -14,7 +14,7 @@ for an Elastic Search cluster, either running locally or on our [stage cluster](
 
 * To install ES on OSX run ```brew install elasticsearch```.
 * Run ```elasticsearch``` to boot the node.
-* To set up the ```article``` index and populate with some sample data, run ```./populate.sh```. Be warned, this will tear down the indices and rebuild them.
+* To set up the ```article``` index and populate with some sample data, run ```./setup.sh```. Be warned, this will tear down the indices and rebuild them.
 * To populate the index with sample data, fill up the ```data``` directory with as many documents as you like, fire up the service and send a request to the ```populate``` endpoint. You need to have Elastic Search running for this to work, and the data must align to the canonical data model. Any errors will be logged to the console and the service will return a 500. 
 
 ## Search
