@@ -9,7 +9,7 @@ Additional samples can be added to illustration how other types of content, such
 
 # Canonical Data Model Elastic Search Mappings
 
-This codebase also contains some a script to create an index and mappings
+This codebase also contains a script to create an index and mappings
 for an Elastic Search cluster, either running locally or on our [stage cluster](mt-content-search.s.aws.economist.com).
 
 * To install ES on OSX run ```brew install elasticsearch```.
