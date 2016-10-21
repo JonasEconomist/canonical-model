@@ -14,8 +14,27 @@ if [ $? != 0 ]; then
     exit -1
 fi
 
+echo "WARNING, this script will delete the 'article' index and re-index all data!"
+echo "Press Control-C to cancel this operation."
+echo
+echo "Press [Enter] to continue."
+read
+
+# Delete the old index.
+curl -s -XDELETE "$ADDRESS/article" > /dev/null
+
+# Create the next index from mapping file.
+echo "Creating 'article' index..."
+curl -s -XPOST "$ADDRESS/article" -d@$(dirname $0)/elasticsearchmap.json
+curl -s "$ADDRESS/article/_health?wait_for_status=yellow&timeout=10s" > /dev/null
+echo
+echo "Done creating 'article' index."
+
+echo
+echo "Indexing data..."
+
 echo "Indexing articles..."
-curl -s -XPOST "$ADDRESS/article/testmap/21697812" -d'{
+curl -s -XPOST "$ADDRESS/article/testmap/abcjrusqjuiub84fu6t3h3n6oivvaa1b" -d'{
   "id": "http://mt-content.stage.s.aws.economist.com/mapper/id/21697812",
   "tegID": "abcjrusqjuiub84fu6t3h3n6oivvaa1b",
   "tegType": "article",
@@ -82,7 +101,7 @@ curl -s -XPOST "$ADDRESS/article/testmap/21697812" -d'{
 }'
 
 echo
-curl -s -XPOST "$ADDRESS/article/testmap/21707839" -d'{
+curl -s -XPOST "$ADDRESS/article/testmap/thpjrusqjuiub84fu6t3h3n6oivvaa1b" -d'{
   "id": "http://mt-content.stage.s.aws.economist.com/mapper/id/21707839",
   "tegID": "thpjrusqjuiub84fu6t3h3n6oivvaa1b",
   "tegType": "blog",
@@ -142,7 +161,7 @@ curl -s -XPOST "$ADDRESS/article/testmap/21707839" -d'{
 }'
 
 echo
-curl -s -XPOST "$ADDRESS/article/testmap/21701829" -d'{
+curl -s -XPOST "$ADDRESS/article/testmap/efgjrusqjuiub84fu6t3h3n6oivvaa1b" -d'{
   "id": "http://mt-content.stage.s.aws.economist.com/collections/21701829",
   "tegID": "efgjrusqjuiub84fu6t3h3n6oivvaa1b",
   "tegType": "storyCollection",
@@ -181,7 +200,7 @@ curl -s -XPOST "$ADDRESS/article/testmap/21701829" -d'{
 }'
 
 echo
-curl -s -XPOST "$ADDRESS/article/testmap/34" -d'{
+curl -s -XPOST "$ADDRESS/article/testmaphijjrusqjuiub84fu6t3h3n6oivvaa1b" -d'{
   "id": "http://mt-content.stage.s.aws.economist.com/sections/34",
   "tegID": "hijjrusqjuiub84fu6t3h3n6oivvaa1b",
   "tegType": "section",
