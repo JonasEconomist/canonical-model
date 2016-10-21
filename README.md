@@ -12,8 +12,20 @@ Additional samples can be added to illustration how other types of content, such
 This codebase also contains some a script to create an index and mappings
 for an Elastic Search cluster, either running locally or on our [stage cluster](mt-content-search.s.aws.economist.com).
 
-To set up the ```article``` index and populate with some sample data, run
-```./populate.sh```. Be warned, this will tear down the indices and rebuild them.
+* To install ES on OSX run ```brew install elasticsearch```.
+* Run ```elasticsearch``` to boot the node.
+* To set up the ```article``` index and populate with some sample data, run ```./populate.sh```. Be warned, this will tear down the indices and rebuild them.
+* To populate the index with sample data, fill up the ```data``` directory with as many documents as you like, fire up the service and send a request to the ```populate``` endpoint. You need to have Elastic Search running for this to work, and the data must align to the canonical data model. Any errors will be logged to the console and the service will return a 500. 
 
-To populate the index with sample data, fill up the ```data``` directory with as many documents as you like, fire up the service and send a request
-to the ```populate``` endpoint. You need to have Elastic Search running for this to work, and the data must align to the canonical data model. Any errors will be logged to the console and the service will return a 500. 
+## Search
+
+Here are some sample queries you can run after initial setup to get you going:
+
+* view mappings for the index: ```http://localhost:9200/article/_mapping```
+* search for the term "clinton": ```http://localhost:9200/article/_search?q=clinton```
+* search for the term "clinton" in ```testmap``` types: ````http://localhost:9200/article/testmap/_search?q=clinton```
+* search for the term "clinton" and return the headline and canonical URL: ````http://localhost:9200/article/testmap/_search?q=clinton&fields=headline,url.canonical```
+
+
+
+
