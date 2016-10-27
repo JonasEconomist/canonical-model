@@ -34,6 +34,7 @@ type Content struct {
 	PrintEdition         Print          `json:"printEdition,omitempty"`
 	Publisher            Person         `json:"publisher,omitempty"`
 	Channel              string         `json:"channel,omitempty"`
+	HasPart              string         `json:"hasPart,omitempty"`
 	IsPartOf             []Ref          `json:"isPartOf,omitempty"`
 	ArticleSection       Section        `json:"articleSection,omitempty"`
 	About                []AboutLink    `json:"about,omitempty"`

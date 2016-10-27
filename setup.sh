@@ -61,6 +61,7 @@ curl -s -XPOST "$ADDRESS/article/testmap/abcjrusqjuiub84fu6t3h3n6oivvaa1b" -d'{
     "pageStart": 25,
     "pageEnd": 26
   },
+  "hasPart": "",
   "isPartOf": ["http://mt-content.stage.s.aws.economist.com/lists/print", "http://mt-content.stage.s.aws.economist.com/lists/sections"],
   "articleSection": {
     "internal": ["http://mt-content.stage.s.aws.economist.com/sections/34"]
@@ -120,7 +121,8 @@ curl -s -XPOST "$ADDRESS/article/testmap/thpjrusqjuiub84fu6t3h3n6oivvaa1b" -d'{
   "headline": "What difference do presidential debates make?",
   "subheadline": "Clinton v Trump",
   "description": "Debates tend not to have a huge effect on the polls, but this is an unusual year",
-  "isPartOf": ["http://mt-content.stage.s.aws.economist.comhttp://mt-content.stage.s.aws.economist.com/lists/blogs"],
+  "hasPart": "",
+  "isPartOf": ["http://mt-content.stage.s.aws.economist.com", "http://mt-content.stage.s.aws.economist.com/lists/blogs"],
   "articleSection": {
     "internal": ["http://mt-content.stage.s.aws.economist.comhttp://mt-content.stage.s.aws.economist.com/sections/77911"]
   },
@@ -176,6 +178,7 @@ curl -s -XPOST "$ADDRESS/article/testmap/efgjrusqjuiub84fu6t3h3n6oivvaa1b" -d'{
     "web": "/node/21701829"
   },
   "headline": "Story collection 2 - new",
+  "hasPart": "",
   "isPartOf": ["http://mt-content.stage.s.aws.economist.com/mapper/id/21697812"],
   "about": [{
     "source": "Topics",
@@ -215,6 +218,7 @@ curl -s -XPOST "$ADDRESS/article/testmaphijjrusqjuiub84fu6t3h3n6oivvaa1b" -d'{
     "web": "sections/sections/business-finance"
   },
   "headline": "Business",
+  "hasPart": "",
   "isPartOf": ["http://mt-content.stage.s.aws.economist.com/lists/sections"],
   "genre": ["News", "Business", "Finance"],
   "keywords": ["Business"],
