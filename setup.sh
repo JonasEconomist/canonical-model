@@ -33,75 +33,55 @@ echo "Done creating 'article' index."
 echo
 echo "Indexing data..."
 
-echo "Indexing articles..."
+echo "Indexing homepage..."
 curl -s -XPOST "$ADDRESS/article/testmap/abcjrusqjuiub84fu6t3h3n6oivvaa1b" -d'{
-  "id": "http://mt-content.stage.s.aws.economist.com/mapper/id/21697812",
+  "id": "http://mt-content.stage.s.aws.economist.com/mapper/id/21555491",
   "tegID": "abcjrusqjuiub84fu6t3h3n6oivvaa1b",
-  "tegType": "article",
-  "type": "article",
+  "tegType": "homepage",
+  "type": "homepage",
   "version": "0",
   "regionsAllowed": ["GB"],
   "isAccessibleForFree": true,
-  "dateCreated": "2015-12-30T15:49:20Z",
-  "dateModified": "2015-12-30T15:49:20Z",
-  "datePublished": "2015-12-30T15:49:20Z",
+  "dateCreated": "2016-10-23T15:49:20Z",
+  "dateModified": "2016-10-23T15:49:20Z",
+  "datePublished": "2016-10-23T15:49:20Z",
   "inLanguage": "en",
   "url": {
-    "canonical": "http://www.economist.com/news/21697812-worlds-most-valuable-company-reported-its-first-year-year-quarterly-revenue-decline",
-    "web": "/news/21697812-worlds-most-valuable-company-reported-its-first-year-year-quarterly-revenue-decline",
-    "short": "bit.ly/21697812"
+    "canonical": "http://www.economist.com/",
+    "web": "/",
+    "short": ""
   },
-  "headline": "Shake it off",
-  "subheadline": "The future of Apple",
-  "description": "The worldâ€™s most valuable company needs another mega hit",
-  "printEdition": {
-    "subHeadline": "The worldâ€™s most valuable company",
-    "section": "http://mt-content.stage.s.aws.economist.com/sections/77",
-    "edition": "http://mt-content.stage.s.aws.economist.com/mapper/id/21697795",
-    "pageStart": 25,
-    "pageEnd": 26
-  },
-  "hasPart": "",
-  "isPartOf": ["http://mt-content.stage.s.aws.economist.com/lists/print", "http://mt-content.stage.s.aws.economist.com/lists/sections"],
-  "articleSection": {
-    "internal": ["http://mt-content.stage.s.aws.economist.com/sections/34"]
-  },
-  "about": [{
-    "source": "Topics",
-    "ref": "http://mt-content.stage.s.aws.economist.com/lists/topics/21697816"
-  }],
-  "genre": ["News", "Business", "Economics"],
-  "keywords": ["Business", "Apple"],
+  "headline": "The Economist - World News, Politics, Economics, Business & Finance",
+  "subheadline": "",
+  "description": "",
+  "hasPart": "http://localhost:9200/article/testmap/_search&q=isPartOf:abcjrusqjuiub84fu6t3h3n6oivvaa1b",
+  "isPartOf": "",
+  "articleSection": {},
+  "about": [],
+  "genre": ["News", "Politics", "Economics", "Business", "Finance"],
+  "keywords": [],
   "ads": {
     "zone": "kjdu",
     "site": "LASN",
-    "grapeshot": "http://mt-content.stage.s.aws.economist.com/external/grapeshot?url=http%3A%2F%2Fwww.economist.com%2Fnode%2F21697812"
+    "grapeshot": "http://mt-content.stage.s.aws.economist.com/external/grapeshot?url=http%3A%2F%2Fwww.economist.com"
   },
   "sponsor": {
     "givenName": "Mark",
     "familyName": "Brincat"
   },
-  "comment": "http://www.economist.com/node/21697812/comments#comments",
-  "images": {
-    "main": "http://cdn.static-economist.com/sites/default/files/images/2016/04/articles/body/20160430_wbc249_0.png",
-    "internal": ["http://cdn.static-economist.com/sites/default/files/images/2016/04/articles/body/20160430_wbc249_0.png"]
-  },
+  "comment": "",
+  "images": {},
   "author": [{
     "familyName": "M.S.R"
   }],
-  "text": {
-    "mediaType": "text/html",
-    "text": "\u003cp\u003eOUR product pipeline has amazing innovations in store.\u003c/p\u003e"
-  },
-  "publications": [{
-    "subHeadline": "The worldâ€™s most valuable company"
-  }],
+  "text": {},
+  "publications": [],
   "list": {
-    "withinLists": ["http://mt-content.stage.s.aws.economist.comhttp://mt-content.stage.s.aws.economist.com/mapper/id/21697795", "http://mt-content.stage.s.aws.economist.com", "http://mt-content.stage.s.aws.economist.com/sections/34"]
+    "withinLists": []
   }
 }'
 
-echo
+echo "Indexing article..."
 curl -s -XPOST "$ADDRESS/article/testmap/thpjrusqjuiub84fu6t3h3n6oivvaa1b" -d'{
   "id": "http://mt-content.stage.s.aws.economist.com/mapper/id/21707839",
   "tegID": "thpjrusqjuiub84fu6t3h3n6oivvaa1b",
@@ -122,7 +102,7 @@ curl -s -XPOST "$ADDRESS/article/testmap/thpjrusqjuiub84fu6t3h3n6oivvaa1b" -d'{
   "subheadline": "Clinton v Trump",
   "description": "Debates tend not to have a huge effect on the polls, but this is an unusual year",
   "hasPart": "",
-  "isPartOf": ["http://mt-content.stage.s.aws.economist.com", "http://mt-content.stage.s.aws.economist.com/lists/blogs"],
+  "isPartOf": ["abcjrusqjuiub84fu6t3h3n6oivvaa1b"],
   "articleSection": {
     "internal": ["http://mt-content.stage.s.aws.economist.comhttp://mt-content.stage.s.aws.economist.com/sections/77911"]
   },
