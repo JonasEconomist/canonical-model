@@ -55,7 +55,6 @@ curl -s -XPOST "$ADDRESS/article/testmap/abcjrusqjuiub84fu6t3h3n6oivvaa1b" -d'{
   "subheadline": "",
   "description": "",
   "hasPart": "http://localhost:9200/article/testmap/_search&q=isPartOf:abcjrusqjuiub84fu6t3h3n6oivvaa1b",
-  "isPartOf": "",
   "articleSection": {},
   "about": [],
   "genre": ["News", "Politics", "Economics", "Business", "Finance"],
@@ -103,7 +102,10 @@ curl -s -XPOST "$ADDRESS/article/testmap/thpjrusqjuiub84fu6t3h3n6oivvaa1b" -d'{
   "subheadline": "Clinton v Trump",
   "description": "Debates tend not to have a huge effect on the polls, but this is an unusual year",
   "hasPart": "",
-  "isPartOf": ["abcjrusqjuiub84fu6t3h3n6oivvaa1b", "2"],
+  "isPartOf": [{
+    "list": "abcjrusqjuiub84fu6t3h3n6oivvaa1b", 
+    "position": "2"
+  }],
   "articleSection": {
     "internal": ["http://mt-content.stage.s.aws.economist.com", "http://mt-content.stage.s.aws.economist.com/sections/77911"]
   },
@@ -122,7 +124,7 @@ curl -s -XPOST "$ADDRESS/article/testmap/thpjrusqjuiub84fu6t3h3n6oivvaa1b" -d'{
     "givenName": "Mark",
     "familyName": "Brincat"
   },
-  "comment": "http://mt-content.stage.s.aws.economist.com", "http://www.economist.com/node/21707839/comments#comments",
+  "comment": "http://www.economist.com/node/21707839/comments#comments",
   "images": {
     "main": "http://cdn.static-economist.com/sites/default/files/20161001_USP501_473.jpg",
     "internal": ["http://cdn.static-economist.com/sites/default/files/20160924_WOC988_0.png"]
@@ -161,8 +163,11 @@ curl -s -XPOST "$ADDRESS/article/testmap/efgjrusqjuiub84fu6t3h3n6oivvaa1b" -d'{
   },
   "headline": "Story collection 2 - new",
   "hasPart": "http://localhost:9200/article/testmap/_search&q=isPartOf:efgjrusqjuiub84fu6t3h3n6oivvaa1b",
-  "isPartOf": ["abcjrusqjuiub84fu6t3h3n6oivvaa1b", "1"],
-  "about": [{
+  "isPartOf": [{
+    "list": "abcjrusqjuiub84fu6t3h3n6oivvaa1b", 
+    "position": "1"
+  }],
+    "about": [{
     "source": "Topics",
     "ref": "http://mt-content.stage.s.aws.economist.com/lists/topics/21701829"
   }],
@@ -207,7 +212,10 @@ curl -s -XPOST "$ADDRESS/article/testmap/xbpjrusqjuiub84fu6t3h3n6oivvaa1b" -d'{
   "subheadline": "",
   "description": "",
   "hasPart": "",
-  "isPartOf": ["efgjrusqjuiub84fu6t3h3n6oivvaa1b", "1"],
+    "isPartOf": [{
+    "list": "efgjrusqjuiub84fu6t3h3n6oivvaa1b", 
+    "position": "1"
+  }],
   "articleSection": {
     "internal": ["http://mt-content.stage.s.aws.economist.com", "http://mt-content.stage.s.aws.economist.com/sections/77911"]
   },
@@ -226,7 +234,7 @@ curl -s -XPOST "$ADDRESS/article/testmap/xbpjrusqjuiub84fu6t3h3n6oivvaa1b" -d'{
     "givenName": "Mark",
     "familyName": "Brincat"
   },
-  "comment": "http://mt-content.stage.s.aws.economist.com", "http://www.economist.com/node/21707839/comments#comments",
+  "comment": "http://www.economist.com/node/21707839/comments#comments",
   "images": {
     "main": "http://cdn.static-economist.com/sites/default/files/20161001_USP501_473.jpg",
     "internal": ["http://cdn.static-economist.com/sites/default/files/20160924_WOC988_0.png"]

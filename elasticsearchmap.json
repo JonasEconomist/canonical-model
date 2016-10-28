@@ -108,8 +108,15 @@
           "isAccessibleForFree" : {
             "type" : "boolean"
           },
-          "isPartOf" : {
-            "type" : "string"
+          "isPartOf": {
+            "properties": {
+              "list": {
+                "type": "string"
+              },
+              "position": {
+                "type": "string"
+              }
+            }
           },
           "keywords" : {
             "type" : "string"

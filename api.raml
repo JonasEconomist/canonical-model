@@ -10,11 +10,36 @@ title: Content Service
       200:
         body:
           text/html:
-/content/{id}:
-  uriParameters:
-    id:
-      displayName: Content ID
-      type: integer
+/homepage/:
+  get:
+    displayName: Content
+    queryParameters:
+      version:
+        displayName: Version
+        type: string
+        description: API version.
+        pattern: "v[0-9]+"
+        required: false
+        default: v1
+      state:
+        displayName: State
+        type: string
+        description: Content state.
+        pattern: "pub|draft|deleted"
+        required: false
+        default: pub
+      payload:
+        displayName: Payload
+        type: string
+        description: Content payload.
+        pattern: "core|teaser|full"
+        required: false
+        default: full
+    responses:
+      200:
+        body:
+          application/json:  
+/article/:
   get:
     displayName: Content
     queryParameters:
@@ -576,3 +601,32 @@ title: Content Service
                   ]
                 }
               }
+/collection/:
+  get:
+    displayName: Content
+    queryParameters:
+      version:
+        displayName: Version
+        type: string
+        description: API version.
+        pattern: "v[0-9]+"
+        required: false
+        default: v1
+      state:
+        displayName: State
+        type: string
+        description: Content state.
+        pattern: "pub|draft|deleted"
+        required: false
+        default: pub
+      payload:
+        displayName: Payload
+        type: string
+        description: Content payload.
+        pattern: "core|teaser|full"
+        required: false
+        default: full
+    responses:
+      200:
+        body:
+          application/json:                

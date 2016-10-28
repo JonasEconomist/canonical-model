@@ -3,6 +3,7 @@ package content
 import (
 	"errors"
 	"fmt"
+	"net/http"
 	"os"
 	"strconv"
 	"strings"
@@ -34,8 +35,8 @@ type Content struct {
 	PrintEdition         Print          `json:"printEdition,omitempty"`
 	Publisher            Person         `json:"publisher,omitempty"`
 	Channel              string         `json:"channel,omitempty"`
-	HasPart              string         `json:"hasPart,omitempty"`
-	IsPartOf             []Ref          `json:"isPartOf,omitempty"`
+	HasPart              *http.Request  `json:"hasPart,omitempty"`
+	IsPartOf             []ListLinks    `json:"isPartOf,omitempty"`
 	ArticleSection       Section        `json:"articleSection,omitempty"`
 	About                []AboutLink    `json:"about,omitempty"`
 	Genre                []string       `json:"genre,omitempty"`
@@ -69,15 +70,19 @@ type Publication struct {
 	Description string `json:"description,omitempty"`
 }
 
+// ListLinks holds hypermedia link with a source description.
+type ListLinks struct {
+	Position string `json:"position,omitempty"`
+	List     string `json:"list,omitempty"`
+}
+
 // List represents a re-usable list of hypermedia links.
 type List struct {
-	Name        string     `json:"name,omitempty"`
-	Position    int        `json:"position,omitempty"`
-	Order       string     `json:"order,omitempty"`
-	TotalItems  int        `json:"totalItems,omitempty"`
-	Pagination  Pagination `json:"pagination,omitempty"`
-	List        Ref        `json:"list,omitempty"`
-	WithinLists []Ref      `json:"withinLists,omitempty"`
+	Name       string     `json:"name,omitempty"`
+	Position   int        `json:"position,omitempty"`
+	Order      string     `json:"order,omitempty"`
+	TotalItems int        `json:"totalItems,omitempty"`
+	Pagination Pagination `json:"pagination,omitempty"`
 }
 
 // URLCollection holds a collection of URLs for a piece of content.
