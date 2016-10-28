@@ -83,6 +83,9 @@
           "genre" : {
             "type" : "string"
           },
+          "hasPart": {
+            "type" : "string"
+          },
           "headline" : {
             "type" : "string"
           },

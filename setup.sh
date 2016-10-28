@@ -33,74 +33,56 @@ echo "Done creating 'article' index."
 echo
 echo "Indexing data..."
 
-echo "Indexing articles..."
+echo "Indexing homepage..."
 curl -s -XPOST "$ADDRESS/article/testmap/abcjrusqjuiub84fu6t3h3n6oivvaa1b" -d'{
-  "id": "http://mt-content.stage.s.aws.economist.com/mapper/id/21697812",
+  "id": "http://mt-content.stage.s.aws.economist.com/mapper/id/21555491",
   "tegID": "abcjrusqjuiub84fu6t3h3n6oivvaa1b",
-  "tegType": "article",
-  "type": "article",
+  "tegType": "homepage",
+  "type": "homepage",
   "version": "0",
   "regionsAllowed": ["GB"],
   "isAccessibleForFree": true,
-  "dateCreated": "2015-12-30T15:49:20Z",
-  "dateModified": "2015-12-30T15:49:20Z",
-  "datePublished": "2015-12-30T15:49:20Z",
+  "dateCreated": "2016-10-23T15:49:20Z",
+  "dateModified": "2016-10-23T15:49:20Z",
+  "datePublished": "2016-10-23T15:49:20Z",
   "inLanguage": "en",
   "url": {
-    "canonical": "http://www.economist.com/news/21697812-worlds-most-valuable-company-reported-its-first-year-year-quarterly-revenue-decline",
-    "web": "/news/21697812-worlds-most-valuable-company-reported-its-first-year-year-quarterly-revenue-decline",
-    "short": "bit.ly/21697812"
+    "canonical": "http://www.economist.com/",
+    "web": "/",
+    "short": ""
   },
-  "headline": "Shake it off",
-  "subheadline": "The future of Apple",
-  "description": "The worldâ€™s most valuable company needs another mega hit",
-  "printEdition": {
-    "subHeadline": "The worldâ€™s most valuable company",
-    "section": "http://mt-content.stage.s.aws.economist.com/sections/77",
-    "edition": "http://mt-content.stage.s.aws.economist.com/mapper/id/21697795",
-    "pageStart": 25,
-    "pageEnd": 26
-  },
-  "isPartOf": ["http://mt-content.stage.s.aws.economist.com/lists/print", "http://mt-content.stage.s.aws.economist.com/lists/sections"],
-  "articleSection": {
-    "internal": ["http://mt-content.stage.s.aws.economist.com/sections/34"]
-  },
-  "about": [{
-    "source": "Topics",
-    "ref": "http://mt-content.stage.s.aws.economist.com/lists/topics/21697816"
-  }],
-  "genre": ["News", "Business", "Economics"],
-  "keywords": ["Business", "Apple"],
+  "headline": "The Economist - World News, Politics, Economics, Business & Finance",
+  "subheadline": "",
+  "description": "",
+  "hasPart": "http://localhost:9200/article/testmap/_search&q=isPartOf:abcjrusqjuiub84fu6t3h3n6oivvaa1b",
+  "isPartOf": "",
+  "articleSection": {},
+  "about": [],
+  "genre": ["News", "Politics", "Economics", "Business", "Finance"],
+  "keywords": [],
   "ads": {
     "zone": "kjdu",
     "site": "LASN",
-    "grapeshot": "http://mt-content.stage.s.aws.economist.com/external/grapeshot?url=http%3A%2F%2Fwww.economist.com%2Fnode%2F21697812"
+    "grapeshot": "http://mt-content.stage.s.aws.economist.com/external/grapeshot?url=http%3A%2F%2Fwww.economist.com"
   },
   "sponsor": {
     "givenName": "Mark",
     "familyName": "Brincat"
   },
-  "comment": "http://www.economist.com/node/21697812/comments#comments",
-  "images": {
-    "main": "http://cdn.static-economist.com/sites/default/files/images/2016/04/articles/body/20160430_wbc249_0.png",
-    "internal": ["http://cdn.static-economist.com/sites/default/files/images/2016/04/articles/body/20160430_wbc249_0.png"]
-  },
+  "comment": "",
+  "images": {},
   "author": [{
     "familyName": "M.S.R"
   }],
-  "text": {
-    "mediaType": "text/html",
-    "text": "\u003cp\u003eOUR product pipeline has amazing innovations in store.\u003c/p\u003e"
-  },
-  "publications": [{
-    "subHeadline": "The worldâ€™s most valuable company"
-  }],
+  "text": {},
+  "publications": [],
   "list": {
-    "withinLists": ["http://mt-content.stage.s.aws.economist.comhttp://mt-content.stage.s.aws.economist.com/mapper/id/21697795", "http://mt-content.stage.s.aws.economist.com", "http://mt-content.stage.s.aws.economist.com/sections/34"]
+    "withinLists": []
   }
 }'
 
 echo
+echo "Indexing article to be featured on homepage..."
 curl -s -XPOST "$ADDRESS/article/testmap/thpjrusqjuiub84fu6t3h3n6oivvaa1b" -d'{
   "id": "http://mt-content.stage.s.aws.economist.com/mapper/id/21707839",
   "tegID": "thpjrusqjuiub84fu6t3h3n6oivvaa1b",
@@ -120,9 +102,10 @@ curl -s -XPOST "$ADDRESS/article/testmap/thpjrusqjuiub84fu6t3h3n6oivvaa1b" -d'{
   "headline": "What difference do presidential debates make?",
   "subheadline": "Clinton v Trump",
   "description": "Debates tend not to have a huge effect on the polls, but this is an unusual year",
-  "isPartOf": ["http://mt-content.stage.s.aws.economist.comhttp://mt-content.stage.s.aws.economist.com/lists/blogs"],
+  "hasPart": "",
+  "isPartOf": ["abcjrusqjuiub84fu6t3h3n6oivvaa1b", "2"],
   "articleSection": {
-    "internal": ["http://mt-content.stage.s.aws.economist.comhttp://mt-content.stage.s.aws.economist.com/sections/77911"]
+    "internal": ["http://mt-content.stage.s.aws.economist.com", "http://mt-content.stage.s.aws.economist.com/sections/77911"]
   },
   "about": [{
     "source": "Topics",
@@ -139,7 +122,7 @@ curl -s -XPOST "$ADDRESS/article/testmap/thpjrusqjuiub84fu6t3h3n6oivvaa1b" -d'{
     "givenName": "Mark",
     "familyName": "Brincat"
   },
-  "comment": "http://mt-content.stage.s.aws.economist.comhttp://www.economist.com/node/21707839/comments#comments",
+  "comment": "http://mt-content.stage.s.aws.economist.com", "http://www.economist.com/node/21707839/comments#comments",
   "images": {
     "main": "http://cdn.static-economist.com/sites/default/files/20161001_USP501_473.jpg",
     "internal": ["http://cdn.static-economist.com/sites/default/files/20160924_WOC988_0.png"]
@@ -161,6 +144,7 @@ curl -s -XPOST "$ADDRESS/article/testmap/thpjrusqjuiub84fu6t3h3n6oivvaa1b" -d'{
 }'
 
 echo
+echo "Indexing story collection..."
 curl -s -XPOST "$ADDRESS/article/testmap/efgjrusqjuiub84fu6t3h3n6oivvaa1b" -d'{
   "id": "http://mt-content.stage.s.aws.economist.com/collections/21701829",
   "tegID": "efgjrusqjuiub84fu6t3h3n6oivvaa1b",
@@ -176,7 +160,8 @@ curl -s -XPOST "$ADDRESS/article/testmap/efgjrusqjuiub84fu6t3h3n6oivvaa1b" -d'{
     "web": "/node/21701829"
   },
   "headline": "Story collection 2 - new",
-  "isPartOf": ["http://mt-content.stage.s.aws.economist.com/mapper/id/21697812"],
+  "hasPart": "http://localhost:9200/article/testmap/_search&q=isPartOf:efgjrusqjuiub84fu6t3h3n6oivvaa1b",
+  "isPartOf": ["abcjrusqjuiub84fu6t3h3n6oivvaa1b", "1"],
   "about": [{
     "source": "Topics",
     "ref": "http://mt-content.stage.s.aws.economist.com/lists/topics/21701829"
@@ -200,30 +185,65 @@ curl -s -XPOST "$ADDRESS/article/testmap/efgjrusqjuiub84fu6t3h3n6oivvaa1b" -d'{
 }'
 
 echo
-curl -s -XPOST "$ADDRESS/article/testmaphijjrusqjuiub84fu6t3h3n6oivvaa1b" -d'{
-  "id": "http://mt-content.stage.s.aws.economist.com/sections/34",
-  "tegID": "hijjrusqjuiub84fu6t3h3n6oivvaa1b",
-  "tegType": "section",
-  "type": "section",
+echo "Indexing article as part of story collection"
+
+curl -s -XPOST "$ADDRESS/article/testmap/xbpjrusqjuiub84fu6t3h3n6oivvaa1b" -d'{
+  "id": "http://mt-content.stage.s.aws.economist.com/mapper/id/21707839",
+  "tegID": "xbpjrusqjuiub84fu6t3h3n6oivvaa1b",
+  "tegType": "blog",
+  "type": "article",
   "version": "0",
-  "dateCreated": "2015-12-30T15:49:20Z",
-  "dateModified": "2015-12-30T15:49:20Z",
-  "datePublished": "2015-12-30T15:49:20Z",
+  "requiresSubscription": true,
+  "dateCreated": "2016-09-26T13:22:31Z",
+  "dateModified": "2016-09-26T19:03:23Z",
+  "datePublished": "2016-09-26T15:16:26Z",
   "inLanguage": "en",
   "url": {
-    "canonical": "http://www.economist.com/sections/business-finance",
-    "web": "sections/sections/business-finance"
+    "canonical": "http://www.economist.com/blogs/foobar",
+    "web": "//blogs/foobar",
+    "short": "bit.ly/21707849"
   },
-  "headline": "Business",
-  "isPartOf": ["http://mt-content.stage.s.aws.economist.com/lists/sections"],
-  "genre": ["News", "Business", "Finance"],
-  "keywords": ["Business"],
+  "headline": "I am included!",
+  "subheadline": "",
+  "description": "",
+  "hasPart": "",
+  "isPartOf": ["efgjrusqjuiub84fu6t3h3n6oivvaa1b", "1"],
+  "articleSection": {
+    "internal": ["http://mt-content.stage.s.aws.economist.com", "http://mt-content.stage.s.aws.economist.com/sections/77911"]
+  },
+  "about": [{
+    "source": "Topics",
+    "ref": "http://mt-content.stage.s.aws.economist.com/lists/topics/21707839"
+  }],
+  "genre": ["News", "Politics", "United States"],
+  "keywords": "",
   "ads": {
-    "zone": "kjdu",
-    "site": "LASN"
+    "zone": "none",
+    "site": "FMSQ",
+    "grapeshot": ""
   },
+  "sponsor": {
+    "givenName": "Mark",
+    "familyName": "Brincat"
+  },
+  "comment": "http://mt-content.stage.s.aws.economist.com", "http://www.economist.com/node/21707839/comments#comments",
+  "images": {
+    "main": "http://cdn.static-economist.com/sites/default/files/20161001_USP501_473.jpg",
+    "internal": ["http://cdn.static-economist.com/sites/default/files/20160924_WOC988_0.png"]
+  },
+  "author": [{
+    "familyName": "W.Z."
+  }],
+  "text": {
+    "mediaType": "text/html",
+    "text": ""
+  },
+  "publications": [{
+    "subHeadline": "Included!"
+  }],
   "list": {
-    "withinLists": ["http://mt-content.stage.s.aws.economist.com/lists/sections"]
+    "pagination": {},
+    "withinLists": ["http://mt-content.stage.s.aws.economist.com/lists/blogs/21003976", "http://mt-content.stage.s.aws.economist.com/sections/77911", "http://mt-content.stage.s.aws.economist.com/sections/77952"]
   }
 }'
 
