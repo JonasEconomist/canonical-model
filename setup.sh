@@ -160,8 +160,8 @@ curl -s -XPOST "$ADDRESS/article/testmap/efgjrusqjuiub84fu6t3h3n6oivvaa1b" -d'{
     "web": "/node/21701829"
   },
   "headline": "Story collection 2 - new",
-  "hasPart": "",
-  "isPartOf": ["http://mt-content.stage.s.aws.economist.com/mapper/id/21697812"],
+  "hasPart": "http://localhost:9200/article/testmap/_search&q=isPartOf:efgjrusqjuiub84fu6t3h3n6oivvaa1b",
+  "isPartOf": ["abcjrusqjuiub84fu6t3h3n6oivvaa1b"],
   "about": [{
     "source": "Topics",
     "ref": "http://mt-content.stage.s.aws.economist.com/lists/topics/21701829"
@@ -186,7 +186,7 @@ curl -s -XPOST "$ADDRESS/article/testmap/efgjrusqjuiub84fu6t3h3n6oivvaa1b" -d'{
 
 echo
 echo "Indexing section..."
-curl -s -XPOST "$ADDRESS/article/testmaphijjrusqjuiub84fu6t3h3n6oivvaa1b" -d'{
+curl -s -XPOST "$ADDRESS/article/testmap/hijjrusqjuiub84fu6t3h3n6oivvaa1b" -d'{
   "id": "http://mt-content.stage.s.aws.economist.com/sections/34",
   "tegID": "hijjrusqjuiub84fu6t3h3n6oivvaa1b",
   "tegType": "section",
@@ -201,7 +201,7 @@ curl -s -XPOST "$ADDRESS/article/testmaphijjrusqjuiub84fu6t3h3n6oivvaa1b" -d'{
     "web": "sections/sections/business-finance"
   },
   "headline": "Business",
-  "hasPart": "",
+  "hasPart": "http://localhost:9200/article/testmap/_search&q=isPartOf:hijjrusqjuiub84fu6t3h3n6oivvaa1b",
   "isPartOf": ["http://mt-content.stage.s.aws.economist.com/lists/sections"],
   "genre": ["News", "Business", "Finance"],
   "keywords": ["Business"],
