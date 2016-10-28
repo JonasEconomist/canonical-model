@@ -82,7 +82,7 @@ curl -s -XPOST "$ADDRESS/article/testmap/abcjrusqjuiub84fu6t3h3n6oivvaa1b" -d'{
 }'
 
 echo
-echo "Indexing article..."
+echo "Indexing article to be featured on homepage..."
 curl -s -XPOST "$ADDRESS/article/testmap/thpjrusqjuiub84fu6t3h3n6oivvaa1b" -d'{
   "id": "http://mt-content.stage.s.aws.economist.com/mapper/id/21707839",
   "tegID": "thpjrusqjuiub84fu6t3h3n6oivvaa1b",
@@ -103,9 +103,9 @@ curl -s -XPOST "$ADDRESS/article/testmap/thpjrusqjuiub84fu6t3h3n6oivvaa1b" -d'{
   "subheadline": "Clinton v Trump",
   "description": "Debates tend not to have a huge effect on the polls, but this is an unusual year",
   "hasPart": "",
-  "isPartOf": ["abcjrusqjuiub84fu6t3h3n6oivvaa1b"],
+  "isPartOf": ["abcjrusqjuiub84fu6t3h3n6oivvaa1b", "2"],
   "articleSection": {
-    "internal": ["http://mt-content.stage.s.aws.economist.comhttp://mt-content.stage.s.aws.economist.com/sections/77911"]
+    "internal": ["http://mt-content.stage.s.aws.economist.com", "http://mt-content.stage.s.aws.economist.com/sections/77911"]
   },
   "about": [{
     "source": "Topics",
@@ -122,7 +122,7 @@ curl -s -XPOST "$ADDRESS/article/testmap/thpjrusqjuiub84fu6t3h3n6oivvaa1b" -d'{
     "givenName": "Mark",
     "familyName": "Brincat"
   },
-  "comment": "http://mt-content.stage.s.aws.economist.comhttp://www.economist.com/node/21707839/comments#comments",
+  "comment": "http://mt-content.stage.s.aws.economist.com", "http://www.economist.com/node/21707839/comments#comments",
   "images": {
     "main": "http://cdn.static-economist.com/sites/default/files/20161001_USP501_473.jpg",
     "internal": ["http://cdn.static-economist.com/sites/default/files/20160924_WOC988_0.png"]
@@ -161,7 +161,7 @@ curl -s -XPOST "$ADDRESS/article/testmap/efgjrusqjuiub84fu6t3h3n6oivvaa1b" -d'{
   },
   "headline": "Story collection 2 - new",
   "hasPart": "http://localhost:9200/article/testmap/_search&q=isPartOf:efgjrusqjuiub84fu6t3h3n6oivvaa1b",
-  "isPartOf": ["abcjrusqjuiub84fu6t3h3n6oivvaa1b"],
+  "isPartOf": ["abcjrusqjuiub84fu6t3h3n6oivvaa1b", "1"],
   "about": [{
     "source": "Topics",
     "ref": "http://mt-content.stage.s.aws.economist.com/lists/topics/21701829"
@@ -185,32 +185,65 @@ curl -s -XPOST "$ADDRESS/article/testmap/efgjrusqjuiub84fu6t3h3n6oivvaa1b" -d'{
 }'
 
 echo
-echo "Indexing section..."
-curl -s -XPOST "$ADDRESS/article/testmap/hijjrusqjuiub84fu6t3h3n6oivvaa1b" -d'{
-  "id": "http://mt-content.stage.s.aws.economist.com/sections/34",
-  "tegID": "hijjrusqjuiub84fu6t3h3n6oivvaa1b",
-  "tegType": "section",
-  "type": "section",
+echo "Indexing article as part of story collection"
+
+curl -s -XPOST "$ADDRESS/article/testmap/xbpjrusqjuiub84fu6t3h3n6oivvaa1b" -d'{
+  "id": "http://mt-content.stage.s.aws.economist.com/mapper/id/21707839",
+  "tegID": "xbpjrusqjuiub84fu6t3h3n6oivvaa1b",
+  "tegType": "blog",
+  "type": "article",
   "version": "0",
-  "dateCreated": "2015-12-30T15:49:20Z",
-  "dateModified": "2015-12-30T15:49:20Z",
-  "datePublished": "2015-12-30T15:49:20Z",
+  "requiresSubscription": true,
+  "dateCreated": "2016-09-26T13:22:31Z",
+  "dateModified": "2016-09-26T19:03:23Z",
+  "datePublished": "2016-09-26T15:16:26Z",
   "inLanguage": "en",
   "url": {
-    "canonical": "http://www.economist.com/sections/business-finance",
-    "web": "sections/sections/business-finance"
+    "canonical": "http://www.economist.com/blogs/foobar",
+    "web": "//blogs/foobar",
+    "short": "bit.ly/21707849"
   },
-  "headline": "Business",
-  "hasPart": "http://localhost:9200/article/testmap/_search&q=isPartOf:hijjrusqjuiub84fu6t3h3n6oivvaa1b",
-  "isPartOf": ["http://mt-content.stage.s.aws.economist.com/lists/sections"],
-  "genre": ["News", "Business", "Finance"],
-  "keywords": ["Business"],
+  "headline": "I am included!",
+  "subheadline": "",
+  "description": "",
+  "hasPart": "",
+  "isPartOf": ["efgjrusqjuiub84fu6t3h3n6oivvaa1b", "1"],
+  "articleSection": {
+    "internal": ["http://mt-content.stage.s.aws.economist.com", "http://mt-content.stage.s.aws.economist.com/sections/77911"]
+  },
+  "about": [{
+    "source": "Topics",
+    "ref": "http://mt-content.stage.s.aws.economist.com/lists/topics/21707839"
+  }],
+  "genre": ["News", "Politics", "United States"],
+  "keywords": "",
   "ads": {
-    "zone": "kjdu",
-    "site": "LASN"
+    "zone": "none",
+    "site": "FMSQ",
+    "grapeshot": ""
   },
+  "sponsor": {
+    "givenName": "Mark",
+    "familyName": "Brincat"
+  },
+  "comment": "http://mt-content.stage.s.aws.economist.com", "http://www.economist.com/node/21707839/comments#comments",
+  "images": {
+    "main": "http://cdn.static-economist.com/sites/default/files/20161001_USP501_473.jpg",
+    "internal": ["http://cdn.static-economist.com/sites/default/files/20160924_WOC988_0.png"]
+  },
+  "author": [{
+    "familyName": "W.Z."
+  }],
+  "text": {
+    "mediaType": "text/html",
+    "text": ""
+  },
+  "publications": [{
+    "subHeadline": "Included!"
+  }],
   "list": {
-    "withinLists": ["http://mt-content.stage.s.aws.economist.com/lists/sections"]
+    "pagination": {},
+    "withinLists": ["http://mt-content.stage.s.aws.economist.com/lists/blogs/21003976", "http://mt-content.stage.s.aws.economist.com/sections/77911", "http://mt-content.stage.s.aws.economist.com/sections/77952"]
   }
 }'
 
