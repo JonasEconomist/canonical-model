@@ -81,6 +81,7 @@ curl -s -XPOST "$ADDRESS/article/testmap/abcjrusqjuiub84fu6t3h3n6oivvaa1b" -d'{
   }
 }'
 
+echo
 echo "Indexing article..."
 curl -s -XPOST "$ADDRESS/article/testmap/thpjrusqjuiub84fu6t3h3n6oivvaa1b" -d'{
   "id": "http://mt-content.stage.s.aws.economist.com/mapper/id/21707839",
@@ -143,6 +144,7 @@ curl -s -XPOST "$ADDRESS/article/testmap/thpjrusqjuiub84fu6t3h3n6oivvaa1b" -d'{
 }'
 
 echo
+echo "Indexing story collection..."
 curl -s -XPOST "$ADDRESS/article/testmap/efgjrusqjuiub84fu6t3h3n6oivvaa1b" -d'{
   "id": "http://mt-content.stage.s.aws.economist.com/collections/21701829",
   "tegID": "efgjrusqjuiub84fu6t3h3n6oivvaa1b",
@@ -183,6 +185,7 @@ curl -s -XPOST "$ADDRESS/article/testmap/efgjrusqjuiub84fu6t3h3n6oivvaa1b" -d'{
 }'
 
 echo
+echo "Indexing section..."
 curl -s -XPOST "$ADDRESS/article/testmaphijjrusqjuiub84fu6t3h3n6oivvaa1b" -d'{
   "id": "http://mt-content.stage.s.aws.economist.com/sections/34",
   "tegID": "hijjrusqjuiub84fu6t3h3n6oivvaa1b",
