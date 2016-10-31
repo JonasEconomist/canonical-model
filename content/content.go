@@ -3,7 +3,6 @@ package content
 import (
 	"errors"
 	"fmt"
-	"net/http"
 	"os"
 	"strconv"
 	"strings"
@@ -35,7 +34,7 @@ type Content struct {
 	PrintEdition         Print          `json:"printEdition,omitempty"`
 	Publisher            Person         `json:"publisher,omitempty"`
 	Channel              string         `json:"channel,omitempty"`
-	HasPart              *http.Request  `json:"hasPart,omitempty"`
+	HasPart              Ref            `json:"hasPart,omitempty"`
 	IsPartOf             []ListLinks    `json:"isPartOf,omitempty"`
 	ArticleSection       Section        `json:"articleSection,omitempty"`
 	About                []AboutLink    `json:"about,omitempty"`

@@ -629,4 +629,15 @@ title: Content Service
     responses:
       200:
         body:
+          application/json: 
+/list/{id}:
+  uriParameters:
+    id:
+      displayName: Content ID
+      type: integer
+  get:
+    displayName: List
+    responses:
+      200:
+        body:
           application/json:                

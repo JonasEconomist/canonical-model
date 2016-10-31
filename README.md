@@ -1,6 +1,6 @@
 # Economist Canonical Data Model
 
-Run the main.go file to have to API documentation and a sample article served on your localhost port 9494 at content/.
+Run the main.go file to have to API documentation and a sample content served on your localhost port 9494 at article/, homepage/, and collection/.
 
 This code provides full RAML documentation and a rough outline of the Go structures that encapsulate the Economist canonical data model as outlined in the spreadsheet found here: 
 https://docs.google.com/a/economist.com/spreadsheets/d/1eyFVfnu6pKlW58QGXc7cevE3o9MvNrTO40MGremJLfw/edit?usp=sharing
@@ -44,6 +44,9 @@ Here are some sample queries you can run after initial setup to get you going:
 }
 ```
 
+## Content Relationships
 
+The lists/{id} endpoint runs a query against the elasticsearch service to find all content that is a part of the supplied content tegID. To illustration how this works, navigate to the homepage/ endpoint and click on the link in the hasPart field.
 
+This will return the results of an elastichsearch query to find all content that has the submitted tegID in the isPartOf field. The tegIDs of this content is returned by the search. View the article/ and collection/ endpoint to verify that both have the homepage tegID in the isPartOf field.
 

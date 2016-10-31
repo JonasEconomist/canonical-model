@@ -1,11 +1,13 @@
 package main
 
 import (
-	"bytes"
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"log"
 	"net/http"
+	"regexp"
+	"strings"
 
 	"github.com/JonasEconomist/canonical-model/content"
 	"github.com/JonasEconomist/canonical-model/es"
@@ -56,11 +58,36 @@ func populate(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+func list(w http.ResponseWriter, r *http.Request) {
+	idRegex := regexp.MustCompile("^.*?/list/(.*)$")
+	id := idRegex.FindStringSubmatch(r.URL.Path)
+	query := fmt.Sprintf(`{ "_source" : "tegID", "query": { "match": { "isPartOf.list": "%v" } }}`, id[1])
+	req, err := http.NewRequest("POST", "http://localhost:9200/article/testmap/_search", strings.NewReader(query))
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+	}
+	client := &http.Client{}
+	resp, err := client.Do(req)
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+	}
+
+	defer resp.Body.Close()
+	body, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	w.Write([]byte(string(body)))
+}
+
 func main() {
 	http.HandleFunc("/", api)
 	http.HandleFunc("/article/", article)
 	http.HandleFunc("/homepage/", homepage)
 	http.HandleFunc("/collection/", collection)
+	http.HandleFunc("/list/", list)
 	http.HandleFunc("/populate/", populate)
 	http.ListenAndServe(":9494", nil)
 }
@@ -150,7 +177,6 @@ var articleSample = content.Content{
 		},
 	},
 }
-var req, _ = http.NewRequest("POST", "http://localhost:9200/article/testmap/_search", bytes.NewBufferString(`{ "query": { "match": { "isPartOf.list": "abcjrusqjuiub84fu6t3h3n6oivvaa1b" } }}`))
 
 var homepageSample = content.Content{
 	ID:                   "http://mt-content.stage.s.aws.economist.com/mapper/id/21555491",
@@ -170,7 +196,7 @@ var homepageSample = content.Content{
 		Web:       "/",
 	},
 	Headline: "The Economist - World News, Politics, Economics, Business & Finance",
-	HasPart:  req,
+	HasPart:  "http://localhost:9494/list/abcjrusqjuiub84fu6t3h3n6oivvaa1b",
 	Genre: []string{
 		"News",
 		"Business",
@@ -186,8 +212,6 @@ var homepageSample = content.Content{
 		FamilyName: "Brincat",
 	},
 }
-
-var req2, _ = http.NewRequest("POST", "http://localhost:9200/article/testmap/_search&q=isPartOf:efgjrusqjuiub84fu6t3h3n6oivvaa1b", nil)
 
 var collectionSample = content.Content{
 	ID:                   "http://mt-content.stage.s.aws.economist.com/collections/21701829",
@@ -207,7 +231,7 @@ var collectionSample = content.Content{
 		Web:       "/node/21701829",
 	},
 	Headline: "Story collection 2 - new",
-	HasPart:  req2,
+	HasPart:  "http://localhost:9494/list/efgjrusqjuiub84fu6t3h3n6oivvaa1b",
 	IsPartOf: []content.ListLinks{
 		content.ListLinks{
 			Position: "1",
