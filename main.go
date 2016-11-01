@@ -61,7 +61,7 @@ func populate(w http.ResponseWriter, r *http.Request) {
 func list(w http.ResponseWriter, r *http.Request) {
 	idRegex := regexp.MustCompile("^.*?/list/(.*)$")
 	id := idRegex.FindStringSubmatch(r.URL.Path)
-	query := fmt.Sprintf(`{ "_source" : "tegID", "query": { "match": { "isPartOf.list": "%v" } }}`, id[1])
+	query := fmt.Sprintf(`{ "sort": [{"isPartOf.position": {"order": "asc"}}], "_source" : "tegID", "query": { "match": { "isPartOf.list": "%v" } }}`, id[1])
 	req, err := http.NewRequest("POST", "http://localhost:9200/article/testmap/_search", strings.NewReader(query))
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
