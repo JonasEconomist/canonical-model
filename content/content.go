@@ -1,6 +1,8 @@
 package content
 
 import (
+	"crypto/sha1"
+	"encoding/base32"
 	"errors"
 	"fmt"
 	"os"
@@ -8,6 +10,22 @@ import (
 	"strings"
 	"time"
 )
+
+func sh(in string) []byte {
+	hash := sha1.New()
+	hash.Write([]byte(in))
+	return hash.Sum(nil)
+}
+
+func b32(hash []byte) string {
+	return strings.ToLower(base32.HexEncoding.EncodeToString(hash))
+}
+
+// ID computes an ID from a string using a
+// lower-cased base 32 representation of a SHA1 hash.
+func CanonicalID(in string) string {
+	return b32(sh(in))
+}
 
 // Content represents a canonical Content post.
 type Content struct {

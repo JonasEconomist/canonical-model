@@ -1,5 +1,44 @@
 package content
 
+import "fmt"
+
+type CanonicalMapper interface {
+	MapToCanonical() (canonical Content, err error)
+}
+
+type BareContent struct {
+	UniqueID string
+	Title    string
+	Created  string
+	Type     string
+}
+
+func (b *BareContent) MapToCanonical() (canonical Content, err error) {
+	c := Content{
+		ID:       NewRef(b),
+		TegID:    CanonicalID(fmt.Sprintf("%s/%s/%s", "somesource", "article", b.UniqueID)),
+		Headline: b.Title,
+		Type:     b.Type,
+	}
+	dateCreated, err := NewISODate(b.Created)
+	if err != nil {
+		return canonical, err
+	}
+	c.DateCreated = dateCreated
+	return c, nil
+}
+
+func (b *BareContent) GetID() string {
+	return b.UniqueID
+}
+
+var BareSample = BareContent{
+	UniqueID: "123456",
+	Title:    "Just the bare bones",
+	Created:  "1478871926",
+	Type:     "some_article",
+}
+
 var ArticleSample = Content{
 	ID:                   "http://mt-content.stage.s.aws.economist.com/mapper/id/21697812",
 	TegID:                "thpjrusqjuiub84fu6t3h3n6oivvaa1b",
