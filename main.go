@@ -32,6 +32,19 @@ func article(w http.ResponseWriter, r *http.Request) {
 	w.Write([]byte(string(bytes)))
 }
 
+func mapped(w http.ResponseWriter, r *http.Request) {
+	mapped, err := content.BareSample.MapToCanonical()
+	if err != nil {
+		log.Fatal(err)
+	}
+	bytes, err := json.Marshal(mapped)
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+	}
+	w.Header().Set("Content-Type", "application/json")
+	w.Write([]byte(string(bytes)))
+}
+
 func homepage(w http.ResponseWriter, r *http.Request) {
 	bytes, err := json.Marshal(content.HomepageSample)
 	if err != nil {
@@ -85,6 +98,7 @@ func list(w http.ResponseWriter, r *http.Request) {
 func main() {
 	http.HandleFunc("/", api)
 	http.HandleFunc("/article/", article)
+	http.HandleFunc("/mapped/", mapped)
 	http.HandleFunc("/homepage/", homepage)
 	http.HandleFunc("/collection/", collection)
 	http.HandleFunc("/list/", list)

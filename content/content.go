@@ -1,6 +1,8 @@
 package content
 
 import (
+	"crypto/sha1"
+	"encoding/base32"
 	"errors"
 	"fmt"
 	"os"
@@ -8,6 +10,22 @@ import (
 	"strings"
 	"time"
 )
+
+func sh(in string) []byte {
+	hash := sha1.New()
+	hash.Write([]byte(in))
+	return hash.Sum(nil)
+}
+
+func b32(hash []byte) string {
+	return strings.ToLower(base32.HexEncoding.EncodeToString(hash))
+}
+
+// ID computes an ID from a string using a
+// lower-cased base 32 representation of a SHA1 hash.
+func CanonicalID(in string) string {
+	return b32(sh(in))
+}
 
 // Content represents a canonical Content post.
 type Content struct {
@@ -200,6 +218,8 @@ func NewAboutLink(source string, ref Ref) AboutLink {
 type Ref string
 
 // NewRef is the factory function for the Ref type.
+// Once we are simply storing canonical content on S3 this ID will
+// probably become obsolete?
 func NewRef(i Identifier) (ref Ref) {
 	id := i.GetID()
 	if _, err := strconv.Atoi(id); err == nil {
