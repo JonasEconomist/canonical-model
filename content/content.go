@@ -218,6 +218,8 @@ func NewAboutLink(source string, ref Ref) AboutLink {
 type Ref string
 
 // NewRef is the factory function for the Ref type.
+// Once we are simply storing canonical content on S3 this ID will
+// probably become obsolete?
 func NewRef(i Identifier) (ref Ref) {
 	id := i.GetID()
 	if _, err := strconv.Atoi(id); err == nil {
